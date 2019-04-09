@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import { Switch } from "react-router-dom";
-import { ConnectedRouter as Router } from "react-router-redux";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { Switch } from 'react-router-dom';
+import { ConnectedRouter as Router } from 'react-router-redux';
 
-import { routes } from "../../routes";
-import paths from "../../paths";
+import { routes } from '../../routes';
+// import paths from "../../paths";
 
-import store from "../../store";
-import { history } from "../../history";
-import AppRoute from "../AppRoute/AppRoute";
+import store from '../../store';
+import { history } from '../../history';
+import AppRoute from '../AppRoute/AppRoute';
 
-import "./style.less";
+import './style.less';
+
 
 class App extends Component {
   render() {

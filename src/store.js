@@ -1,37 +1,37 @@
 /* eslint-disable no-underscore-dangle */
-import { routerMiddleware, routerReducer } from "react-router-redux";
-import { applyMiddleware, combineReducers, compose, createStore } from "redux";
-import promiseMiddleware from "redux-promise-middleware";
-import thunk from "redux-thunk";
+import { routerMiddleware, routerReducer } from 'react-router-redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 
-import { history } from "./history";
-import { FAIL, START, SUCCESS } from "./shared/utils/constants";
+import { history } from './history';
+import { FAIL, START, SUCCESS } from './shared/utils/constants';
 
-// import initial, { moduleName as initialModuleName } from "./redux/initial";
+import appState, { moduleName as appStateModuleName } from './redux/appState';
+
 
 const rootReducer = combineReducers({
-  asd: {},
   // ...exampleStore,
-  //   [initialModuleName]: initial,
+  [appStateModuleName]: appState,
   routing: routerReducer,
 });
 
-const logger = store => next => action => {
-  console.log("");
-  console.log("PREV STATE: ", store.getState());
-  console.log("ACTION: ", action.type);
+const logger = store => next => (action) => {
+  console.log('');
+  console.log('PREV STATE: ', store.getState());
+  console.log('ACTION: ', action.type);
   next(action);
-  console.log("NEXT STATE", store.getState());
-  console.log("");
+  console.log('NEXT STATE', store.getState());
+  console.log('');
   return next;
 };
 
 const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        trace: true,
-        traceLimit: 25,
-      })
+      trace: true,
+      traceLimit: 25,
+    })
     : compose;
 
 const enhancer = composeEnhancers(
@@ -39,14 +39,14 @@ const enhancer = composeEnhancers(
     routerMiddleware(history),
     promiseMiddleware({
       promiseTypeSuffixes: [
-        START.replace("_", ""),
-        SUCCESS.replace("_", ""),
-        FAIL.replace("_", ""),
+        START.replace('_', ''),
+        SUCCESS.replace('_', ''),
+        FAIL.replace('_', ''),
       ],
     }),
     thunk,
-    logger
-  )
+    logger,
+  ),
   // other store enhancers if any
 );
 

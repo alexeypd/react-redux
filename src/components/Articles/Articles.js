@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
+import './style.less';
 
-const Articles = () => {
-  return <div>Articles</div>;
-};
+
+const Articles = () => <div>Articles</div>;
 
 export default Articles;

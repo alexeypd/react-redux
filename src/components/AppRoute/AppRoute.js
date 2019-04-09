@@ -1,6 +1,7 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
+
 
 class AppRoute extends PureComponent {
   static propTypes = {

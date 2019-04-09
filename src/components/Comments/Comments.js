@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
+import './style.less';
 
-const Comments = () => {
-  return <div>Comments</div>;
-};
+
+const Comments = () => <div>Comments</div>;
 
 export default Comments;
