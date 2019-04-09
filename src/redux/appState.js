@@ -1,17 +1,21 @@
 export const moduleName = 'appState';
 
-export const SWITCH_MODE = `@${moduleName}/SWITCH_MODE`;
+export const CHANGE_INITIAL_RENDER = `@${moduleName}/CHANGE_INITIAL_RENDER`;
 
-const initialState = {};
+const initialState = {
+  isInitialRender: true,
+};
 
-export default function appState(state = initialState, { type, payload }) {
+export default function appState(state = initialState, { type }) {
   switch (type) {
-    case SWITCH_MODE:
-      return { ...state, mode: payload };
+    case CHANGE_INITIAL_RENDER:
+      return { ...state, isInitialRender: false };
 
     default:
       return state;
   }
 }
 
-export const switchModeAction = data => ({ type: SWITCH_MODE, payload: data });
+export const changeInitialRender = () => (dispatch) => {
+  dispatch({ type: CHANGE_INITIAL_RENDER });
+};

@@ -67,6 +67,7 @@
     "react-dev-utils": "^8.0.0",
     "react-dom": "16.2.0",
     "react-image-crop": "^6.0.12",
+    "react-loader-spinner": "^2.3.0",
     "react-lodash": "^0.1.2",
     "react-mobile-datepicker": "^4.0.0",
     "react-redux": "^5.0.2",

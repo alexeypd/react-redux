@@ -8,23 +8,27 @@ import { history } from './history';
 import { FAIL, START, SUCCESS } from './shared/utils/constants';
 
 import appState, { moduleName as appStateModuleName } from './redux/appState';
+import articles, {
+  moduleName as articlesModuleName,
+} from './components/Articles/redux/articles.redux';
 
 
 const rootReducer = combineReducers({
   // ...exampleStore,
   [appStateModuleName]: appState,
+  [articlesModuleName]: articles,
   routing: routerReducer,
 });
 
-const logger = store => next => (action) => {
-  console.log('');
-  console.log('PREV STATE: ', store.getState());
-  console.log('ACTION: ', action.type);
-  next(action);
-  console.log('NEXT STATE', store.getState());
-  console.log('');
-  return next;
-};
+// const logger = store => next => (action) => {
+//   console.log('');
+//   console.log('PREV STATE: ', store.getState());
+//   console.log('ACTION: ', action.type);
+//   next(action);
+//   console.log('NEXT STATE', store.getState());
+//   console.log('');
+//   return next;
+// };
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -45,7 +49,7 @@ const enhancer = composeEnhancers(
       ],
     }),
     thunk,
-    logger,
+    // logger,
   ),
   // other store enhancers if any
 );

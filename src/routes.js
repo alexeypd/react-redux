@@ -1,7 +1,8 @@
-import paths from "./paths";
+import paths from './paths';
 
-import Articles from "./components/Articles/Articles";
-import Comments from "./components/Comments/Comments";
+import Articles from './components/Articles/Articles';
+import Article from './components/Article/Article';
+
 
 export const routesList = [
   {
@@ -10,9 +11,9 @@ export const routesList = [
     component: Articles,
   },
   {
-    path: paths.comments,
+    path: paths.article,
     isExact: true,
-    component: Comments,
+    component: Article,
   },
 ];
 

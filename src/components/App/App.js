@@ -4,10 +4,10 @@ import { Switch } from 'react-router-dom';
 import { ConnectedRouter as Router } from 'react-router-redux';
 
 import { routes } from '../../routes';
+import { history } from '../../history';
+import store from '../../store';
 // import paths from "../../paths";
 
-import store from '../../store';
-import { history } from '../../history';
 import AppRoute from '../AppRoute/AppRoute';
 
 import './style.less';

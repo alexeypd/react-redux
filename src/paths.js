@@ -1,4 +1,4 @@
 export default {
-  home: "/",
-  comments: "/comments",
+  home: '/',
+  article: '/article/:id',
 };
