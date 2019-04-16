@@ -29,11 +29,12 @@ export default function articles(state = initialState, { type, payload }) {
 
 export const fetchArticlesData = () => async (dispatch) => {
   dispatch({ type: FETCH_ARTICLES_START });
-  try {
-    getArticles().then((response) => {
+
+  getArticles()
+    .then((response) => {
       dispatch({ type: FETCH_ARTICLES_SUCCESS, payload: response.articles });
+    })
+    .catch((error) => {
+      dispatch({ type: FETCH_ARTICLES_FAILURE, payload: error });
     });
-  } catch (err) {
-    dispatch({ type: FETCH_ARTICLES_FAILURE, payload: err });
-  }
 };
